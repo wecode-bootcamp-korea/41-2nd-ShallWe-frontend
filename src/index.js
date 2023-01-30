@@ -6,8 +6,8 @@ import theme from './styles/theme';
 import Router from './Router';
 ReactDOM.render(
   <>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Router />
     </ThemeProvider>
   </>,
