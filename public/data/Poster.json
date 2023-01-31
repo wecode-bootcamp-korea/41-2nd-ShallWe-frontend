@@ -1,0 +1,14 @@
+[
+  { "id": 1, "img": "/img/poster1.jpeg" },
+  { "id": 2, "img": "/img/poster.jpeg" },
+  { "id": 3, "img": "/img/poster3.jpeg" },
+  { "id": 4, "img": "/img/poster4.jpeg" },
+  { "id": 5, "img": "/img/poster5.jpeg" },
+  { "id": 6, "img": "/img/poster6.avif" },
+  { "id": 7, "img": "/img/poster7.jpeg" },
+  { "id": 8, "img": "/img/poster8.jpeg" },
+  { "id": 9, "img": "/img/poster9.jpeg" },
+  { "id": 10, "img": "/img/poster10.jpeg" },
+  { "id": 11, "img": "/img/poster11.jpeg" },
+  { "id": 12, "img": "/img/poster12.jpeg" }
+]
