@@ -79,7 +79,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   min-width: 1400px;
   height: 30vh;
   padding: 30px;

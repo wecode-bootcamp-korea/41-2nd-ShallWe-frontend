@@ -4,6 +4,8 @@ import Nav from './components/Nav/Nav';
 import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
+import Category from './pages/Category/Category';
+
 import KakaoLogin from './pages/Login/KakaoLogin';
 import MyShallwe from './pages/MyPage/MyShallwe';
 
@@ -15,6 +17,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/category" element={<Category />} />
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
         <Route path="/moviecart" element={<MovieCart />} />
         <Route path="/mypage" element={<MyShallwe />} />
