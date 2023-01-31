@@ -1,45 +1,59 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled, { StyledComponent } from 'styled-components';
-import CategoryModal from './CategoryModal';
-import ProductCards from '../../components/ProductCards';
+import { API } from '../../config';
+import styled from 'styled-components';
+import ProductCards from './ProductCard';
 import theme from '../../styles/theme';
 import { AiOutlineDown } from 'react-icons/ai';
+import check from './images/check.png';
 
 const Category = () => {
-  const [movieOption, setmovieOption] = useState([]);
   const [modalSwitcher, setModalSwitcher] = useState(-1);
   const [modalStatus, setModalStatus] = useState(false);
+  const [selectOption, setSelectOption] = useState(-1);
+
+  const [movieData, setMovieData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loadFin, setLoadFin] = useState(false);
+
+  const fetchmovieData = async (page) => {
+    const res = await fetch(`${API.CATEGORY}?page=${page}`);
+    const data = await res.json();
+    setMovieData((prev) => [...prev, ...data]);
+    setLoadFin(true);
+  };
+
+  useEffect(() => {
+    fetchmovieData(page);
+  }, [page]);
+
+  const loadMore = () => {
+    setPage((prev) => prev + 1);
+  };
+
+  const pageEnd = useRef();
+
+  useEffect(() => {
+    if (!loadFin) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { threshold: 0.7 }
+    );
+    observer.observe(pageEnd.current);
+  }, [loadFin]);
 
   const handleShowModal = () => {
-    setModalSwitcher(movieOption.id);
+    setModalSwitcher(movieData.id);
     setModalStatus(!modalStatus);
   };
-
-  const target = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(callback, finScroll);
-    observer.observe(target.current);
-  }, [target]);
-
-  const finScroll = {
-    threshold: 1.0,
-  };
-
-  const callback = () => {
-    target = console.log('load');
-  };
-
-  useEffect(() => {
-    fetch('/data/category.json')
-      .then((result) => result.json())
-      .then((data) => setmovieOption(data));
-  }, []);
 
   return (
     <>
       <CategoryContainer>
-        {movieOption && (
+        {movieData[0] && (
           <ContentsWrapper>
             <CategoryTitlePadding>
               <CategoryTitleWrapper>
@@ -71,13 +85,21 @@ const Category = () => {
                             <span>{option.title}</span>
                             <AiOutlineDown className="downButton" />
                           </ButtonFilter>
-                          {/* // {modal.id && ()} */}
                           <FilterModal display={modalSwitcher === option.id}>
                             <FilterValueWrapper>
                               {option.value.map((result, id) => {
                                 return (
                                   <ValueCheckBox key={id}>
-                                    <CheckBox />
+                                    <CheckBox
+                                      key={id}
+                                      onClick={() => {
+                                        setSelectOption(id);
+                                        if (selectOption === id) {
+                                          setSelectOption(null);
+                                        }
+                                      }}>
+                                      <img src={check} display={selectOption === id} alt="체크" />
+                                    </CheckBox>
                                     {result}
                                   </ValueCheckBox>
                                 );
@@ -93,22 +115,19 @@ const Category = () => {
               <ProductListWrapper>
                 <ProductList>
                   <ProductStateBar>
-                    <span>{movieOption.length}건의 결과가 있어요</span>
-                    <select>
-                      <option value={'recommend'}>추천순</option>
-                      <option value={'released'}>최신순</option>
-                      <option value={'rating'}>평점순</option>
-                    </select>
+                    <span>{movieData[0].count}건의 결과가 있어요</span>
                   </ProductStateBar>
                   <CategoryProductCardWrapper>
-                    <ProductCards product={movieOption} />
+                    {movieData.map((result, id) => {
+                      return <ProductCards key={id} result={result} />;
+                    })}
                   </CategoryProductCardWrapper>
                 </ProductList>
               </ProductListWrapper>
             </CategoryContents>
           </ContentsWrapper>
         )}
-        <div ref={target} />
+        <div ref={pageEnd} />
       </CategoryContainer>
     </>
   );
@@ -129,6 +148,7 @@ const CategoryTitlePadding = styled.div`
 
 const CategoryTitleWrapper = styled.div`
   max-width: 1304px;
+  width: 1300px;
   height: 120px;
   position: relative;
   display: flex;
@@ -166,7 +186,7 @@ const CategoryContents = styled.div`
 `;
 
 const CategoryButtonZoneWrapper = styled.div`
-  height: 150px; // 임시 높이값
+  display: none; // 장르버튼 필터링 추가구현 예정
   padding: 0 69px;
   border-bottom: 10px solid ${theme.color.gray};
   font-size: 13px;
@@ -220,7 +240,7 @@ const ProductStateBar = styled.div`
   width: 100%;
   margin: 45px, 0, 25px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   span {
     color: black;
@@ -252,7 +272,7 @@ const FilterModal = styled.div`
   padding: 15px 20px 0;
   top: 50px;
   z-index: 10;
-  background-color: lightblue;
+  background-color: white;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 20%) 0px 3px 6px 0px;
   display: ${({ display }) => (display ? 'flex' : 'none')};
@@ -271,7 +291,6 @@ const ValueCheckBox = styled.div`
   max-width: 50%;
   margin-bottom: 22px;
   display: flex;
-  cursor: pointer;
   align-items: center;
 `;
 
@@ -281,12 +300,16 @@ const CheckBox = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin-right: 15px;
+  background-color: #e0e0e0;
+  border: none;
+  img {
+    display: ${({ display }) => (display ? 'flex' : 'none')};
+    width: 15px;
+    position: relative;
+    right: 5px;
+  }
 `;
 
 const FILTEROPTION = [
-  { id: 1, title: '장르', value: ['액션', '멜로', '로코', 'SF', '호러'] },
-  { id: 2, title: '날짜', value: ['cator', 'mike', 'nicer'] },
-  { id: 3, title: '시간', value: ['cator', 'mike', 'nicer'] },
-  { id: 4, title: '장소', value: ['cator', 'mike', 'nicer'] },
-  { id: 5, title: 'HashTag', value: ['cator', 'mike', 'nicer'] },
+  { id: 1, title: '장르', value: ['극/영화', '다큐', '애니메이션', '실험영화'] },
 ];

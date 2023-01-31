@@ -4,4 +4,5 @@ export const API = {
   LOGIN: `${BASE_URL}/users/kakaoLogin`,
   MYINFO: `${BASE_URL}/myShallWe/userinfo`,
   MYREVIEW: `${BASE_URL}/myShallWe/reviews`,
+  CATEGORY: `${BASE_URL}/movies/category`,
 };
