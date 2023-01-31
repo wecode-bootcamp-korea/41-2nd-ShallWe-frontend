@@ -13,6 +13,7 @@ import MyPage from './pages/MyPage/MyPage';
 import UserInfo from './pages/MyPage/components/UserInfo';
 import Review from './pages/MyPage/components/Review';
 import Refunds from './pages/MyPage/components/Refunds';
+import Detail from './pages/MovieDetail/Detail';
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
