@@ -5,12 +5,11 @@ import Main from './pages/Main/Main';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import Category from './pages/Category/Category';
-
 import KakaoLogin from './pages/Login/KakaoLogin';
 import MyShallwe from './pages/MyPage/MyShallwe';
 import Subscription from './pages/Subscription/Subscription';
-
 import MovieCart from './pages/MovieCart/MovieCart';
+
 export default function Router() {
   return (
     <BrowserRouter>
