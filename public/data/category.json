@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "멜로",
+    "price": 15000,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "독립이 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "나도 독립할래"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "액션",
+    "price": 12000,
+    "reviewRate": 4.3,
+    "reviewCount": 365,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "화려한 액션"
+      },
+      {
+        "id": 2,
+        "Tag_2": "광복을 향한 몸짓"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "호러",
+    "price": 19000,
+    "reviewRate": 2.5,
+    "reviewCount": 565,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "무서운게 딱 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "무서운게 딱 좋아"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "호러",
+    "price": 19000,
+    "reviewRate": 2.5,
+    "reviewCount": 565,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "무서운게 딱 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "무서운게 딱 좋아"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "호러",
+    "price": 19000,
+    "reviewRate": 2.5,
+    "reviewCount": 565,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "무서운게 딱 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "무서운게 딱 좋아"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "호러",
+    "price": 19000,
+    "reviewRate": 2.5,
+    "reviewCount": 565,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "무서운게 딱 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "무서운게 딱 좋아"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "호러",
+    "price": 19000,
+    "reviewRate": 2.5,
+    "reviewCount": 565,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "무서운게 딱 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "무서운게 딱 좋아"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "전쟁이야",
+    "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "genre": "호러",
+    "price": 19000,
+    "reviewRate": 2.5,
+    "reviewCount": 565,
+    "hashTag": [
+      {
+        "id": 1,
+        "Tag_1": "무서운게 딱 좋아"
+      },
+      {
+        "id": 2,
+        "Tag_2": "무서운게 딱 좋아"
+      }
+    ]
+  }
+]
