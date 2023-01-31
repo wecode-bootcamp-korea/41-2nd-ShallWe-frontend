@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "창밖은 겨울",
+    "quantity": 1,
+    "time": "7시 40분",
+    "imageUrl": "https://indieground.kr/fileFolder/eb42f8a2-2d02-4232-bf69-3104872475ea_jpg",
+    "ExpirationDate": "2023-02-08",
+    "price": 25000
+  },
+  {
+    "id": 2,
+    "name": "다음 소희",
+    "quantity": 1,
+    "time": "4시 30분",
+    "imageUrl": "https://indieground.kr/fileFolder/3a41f4d1-96e9-4d43-a062-613c041f4f2a_jpg",
+    "ExpirationDate": "2023-02-08",
+    "price": 27000
+  }
+]
