@@ -6,10 +6,13 @@ import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import Category from './pages/Category/Category';
 import KakaoLogin from './pages/Login/KakaoLogin';
-import MyShallwe from './pages/MyPage/MyShallwe';
 import Subscription from './pages/Subscription/Subscription';
 import MovieCart from './pages/MovieCart/MovieCart';
 import Search from './pages/Search/Search';
+import MyPage from './pages/MyPage/MyPage';
+import UserInfo from './pages/MyPage/components/UserInfo';
+import Review from './pages/MyPage/components/Review';
+import Refunds from './pages/MyPage/components/Refunds';
 
 export default function Router() {
   return (
@@ -21,7 +24,12 @@ export default function Router() {
         <Route path="/category" element={<Category />} />
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
         <Route path="/moviecart" element={<MovieCart />} />
-        <Route path="/mypage" element={<MyShallwe />} />
+        <Route path="/mypage" element={<MyPage />}>
+          <Route path="userinfo" element={<UserInfo />} />
+          <Route path="subscription" element={<Subscription />} />
+          <Route path="reviews" element={<Review />} />
+          <Route path="refunds" element={<Refunds />} />
+        </Route>
         <Route path="/subscribe" element={<Subscription />} />
         <Route path="/search" element={<Search />} />
       </Routes>

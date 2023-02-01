@@ -53,7 +53,7 @@ const MyShallwe = () => {
             return (
               <InfoItem key={idx}>
                 <InfoText> {list.text} </InfoText>
-                <InfoIcon src={require('./images/' + list.src + '.png')} alt={list.alt} />
+                <InfoIcon src={require('../images/' + list.src + '.png')} alt={list.alt} />
               </InfoItem>
             );
           })}
