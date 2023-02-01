@@ -18,7 +18,6 @@ const KakaoLogin = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.accessToken) {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인에 성공했습니다');
