@@ -62,8 +62,9 @@ const Footer = () => {
           <NicePay>
             <p>
               쉘위는 통신판매중개자로서 통신판매 당사자가 아니며, 판매자가 등록한 상품정보 및 거래에
-              대해 쉘위는 책임을 지지 않습니다. 고객님의 안전거래를 위해 현금 등으로 결제 시 저희
-              쇼핑몰에서 가입한 NICE구매안전 (에스크로) 서비스를 이용하실 수 있습니다.
+              대해 쉘위는 책임을 지지 않습니다. <br />
+              고객님의 안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰에서 가입한 NICE구매안전
+              (에스크로) 서비스를 이용하실 수 있습니다.
             </p>
           </NicePay>
           <NicePay>
@@ -93,7 +94,9 @@ const FooterTop = styled.div`
 `;
 
 const FooterWrapper = styled.div`
-  width: 60%;
+  width: 1240px;
+  height: 260px;
+  min-width: 1240px;
   margin: auto;
 
   ${FooterTop} {
@@ -116,8 +119,6 @@ const TopText = styled.div`
   }
 `;
 const TopImgBox = styled.div`
-  width: 30%;
-
   .icon {
     width: 25px;
     height: 25px;
@@ -155,6 +156,7 @@ const TopImgBox = styled.div`
 
 const CenterItem = styled.div`
   width: 17%;
+
   font-size: 12px;
   font-weight: 600;
 
@@ -165,13 +167,15 @@ const CenterItem = styled.div`
 const FooterCenter = styled.div`
   display: flex;
   justify-content: flex-start;
+  width: 1240px;
+  min-width: 1240px;
 
   margin-bottom: 20px;
 `;
 
 const FlexItemOne = styled.div`
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: space-between;
 
   .underline {
@@ -181,13 +185,16 @@ const FlexItemOne = styled.div`
 
 const FlexItemTwo = styled.div`
   display: flex;
-  width: 80%;
+  width: 60%;
   justify-content: space-between;
 `;
 
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
+
+  width: 1240px;
+  min-width: 1240px;
 
   font-size: 12px;
   color: #707070;
