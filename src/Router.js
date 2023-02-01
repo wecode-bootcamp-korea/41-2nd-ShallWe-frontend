@@ -9,6 +9,7 @@ import KakaoLogin from './pages/Login/KakaoLogin';
 import MyShallwe from './pages/MyPage/MyShallwe';
 import Subscription from './pages/Subscription/Subscription';
 import MovieCart from './pages/MovieCart/MovieCart';
+import Search from './pages/Search/Search';
 
 export default function Router() {
   return (
@@ -22,6 +23,7 @@ export default function Router() {
         <Route path="/moviecart" element={<MovieCart />} />
         <Route path="/mypage" element={<MyShallwe />} />
         <Route path="/subscribe" element={<Subscription />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -98,7 +98,6 @@ const FooterWrapper = styled.div`
   height: 260px;
   min-width: 1240px;
   margin: auto;
-
   ${FooterTop} {
     margin-bottom: 50px;
   }
