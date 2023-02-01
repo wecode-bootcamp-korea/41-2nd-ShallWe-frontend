@@ -9,25 +9,23 @@ const KakaoLogin = () => {
 
   const autoKakaLogin = () => {
     const code = new URL(window.location.href).searchParams.get('code');
-    console.log(code);
     fetch(`${API.LOGIN}`, {
       method: 'POST',
       headers: {
+        Authorization: code,
         'Content-Type': 'application/json;charset=utf-8',
       },
-      body: JSON.stringify({
-        code: code,
-      }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === 200) {
+        console.log(data);
+        if (data.accessToken) {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인에 성공했습니다');
           navigate('/');
         } else {
           alert('로그인에 실패하였습니다.');
-          navigate('/');
+          navigate('/login');
         }
       });
   };
