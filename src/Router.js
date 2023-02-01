@@ -8,6 +8,7 @@ import Category from './pages/Category/Category';
 
 import KakaoLogin from './pages/Login/KakaoLogin';
 import MyShallwe from './pages/MyPage/MyShallwe';
+import Subscription from './pages/Subscription/Subscription';
 
 import MovieCart from './pages/MovieCart/MovieCart';
 export default function Router() {
@@ -21,6 +22,7 @@ export default function Router() {
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
         <Route path="/moviecart" element={<MovieCart />} />
         <Route path="/mypage" element={<MyShallwe />} />
+        <Route path="/subscribe" element={<Subscription />} />
       </Routes>
       <Footer />
     </BrowserRouter>
