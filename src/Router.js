@@ -30,15 +30,11 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
-<<<<<<< HEAD
         <Route path="/subscription" element={<Subscription />} />
-=======
-        <Route path="/moviecart" element={<MovieCart />} />
         <Route path="/subscribe" element={<Subscription />} />
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:id" element={<Detail />} />
         {/* <Route path="/approval" element={<PaySuccess />} /> */}
->>>>>>> 052d24a (충돌수정)
         <Route path="/mypage" element={<MyPage />}>
           <Route path="subscribe" element={<Subscribe />} />
           <Route path="reviews" element={<Review />} />
