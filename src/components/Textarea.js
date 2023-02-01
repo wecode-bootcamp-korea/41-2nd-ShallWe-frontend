@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Input = styled.input`
+const Textarea = styled.textarea`
   display: inline-block;
 
   width: ${({ width }) => (width ? width : '335px')};
@@ -20,4 +20,4 @@ const Input = styled.input`
   }
 `;
 
-export default Input;
+export default Textarea;

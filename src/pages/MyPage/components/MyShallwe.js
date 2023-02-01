@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const INFO_LISTS = [
@@ -6,31 +7,37 @@ const INFO_LISTS = [
     text: '구독내역',
     src: 'bill',
     alt: 'bill-icon',
+    navigate: '/subscription',
   },
   {
     text: '취소환불',
     src: 'payback',
     alt: 'payback-icon',
+    navigate: '/refunds',
   },
   {
     text: '영화정보',
     src: 'movie',
     alt: 'movie-icon',
+    navigate: '/movies',
   },
   {
     text: '회원정보',
     src: 'user',
     alt: 'user-icon',
+    navigate: '/userinfo',
   },
   {
     text: '리뷰',
     src: 'review',
     alt: 'review-icon',
+    navigate: 'mypage/reviews',
   },
   {
     text: '고객센터',
     src: 'call',
     alt: 'call-icon',
+    navigate: '/call',
   },
 ];
 
@@ -52,8 +59,10 @@ const MyShallwe = () => {
           {INFO_LISTS.map((list, idx) => {
             return (
               <InfoItem key={idx}>
-                <InfoText> {list.text} </InfoText>
-                <InfoIcon src={require('../images/' + list.src + '.png')} alt={list.alt} />
+                <Link className="navigate" to={`${list.navigate}`}>
+                  <InfoText> {list.text} </InfoText>
+                  <InfoIcon src={require('../images/' + list.src + '.png')} alt={list.alt} />
+                </Link>
               </InfoItem>
             );
           })}
@@ -64,12 +73,28 @@ const MyShallwe = () => {
 };
 
 export default MyShallwe;
+const InfoIcon = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+`;
 
 const InfoItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  .navigate {
+    text-decoration: none;
+  }
+
+  ${InfoIcon} {
+    margin-left: 10px;
+  }
 `;
 
 const InfoText = styled.div`
@@ -85,12 +110,6 @@ const InfoText = styled.div`
   &:hover {
     color: #ffba00;
   }
-`;
-
-const InfoIcon = styled.img`
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
 `;
 
 const MeberInfo = styled.div`
