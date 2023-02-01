@@ -152,10 +152,8 @@ const SubscriptionContainer = styled.div`
   width: 100%;
   height: 859px;
   background-color: #f7f7f7;
-
   display: flex;
   justify-content: center;
-
   .mr-30 {
     margin-right: 30px;
   }
