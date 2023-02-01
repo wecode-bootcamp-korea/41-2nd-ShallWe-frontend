@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { API } from '../../../config';
 import styled from 'styled-components';
 import MyBox from './MyBox';
 
 const UserInfo = () => {
+  const [userInfo, setUserInfo] = useState([]);
+
+  useEffect(() => {
+    fetch(`${API.MYINFO}`, {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserInfo(data);
+      });
+  }, []);
+
+  const [info] = userInfo;
+
   return (
     <MyBox>
       <MyBoxContent>
@@ -12,7 +32,7 @@ const UserInfo = () => {
         <ContentDetail>
           <DetailItem>
             <div>닉네임</div>
-            <div>제이크</div>
+            <div>{info.nickname}</div>
           </DetailItem>
           <DetailItem>
             <div>비밀번호</div>
@@ -20,7 +40,7 @@ const UserInfo = () => {
           </DetailItem>
           <DetailItem>
             <div>이메일</div>
-            <div>jakeajake@adfsasdfasdf.com</div>
+            <div>{info.email}</div>
           </DetailItem>
           <DetailItem>
             <div>이메일 수신 이메일</div>
