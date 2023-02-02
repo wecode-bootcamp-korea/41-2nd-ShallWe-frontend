@@ -5,6 +5,15 @@
     "thumbnail": "https://images.unsplash.com/photo-1675106645326-171d87895544?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     "genre": "멜로",
     "price": 15000,
+    "place": "상암동",
+    "date": [
+      {
+        "time_1": "2023-03-15 "
+      },
+      {
+        "time_2": "2023-03-15 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -24,6 +33,15 @@
     "price": 12000,
     "reviewRate": 4.3,
     "reviewCount": 365,
+    "place": "수원",
+    "date": [
+      {
+        "time_1": "2023-03-17 "
+      },
+      {
+        "time_2": "2023-03-17 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -43,6 +61,15 @@
     "price": 19000,
     "reviewRate": 2.5,
     "reviewCount": 565,
+    "place": "혜화",
+    "date": [
+      {
+        "time_1": "2023-03-20 "
+      },
+      {
+        "time_2": "2023-03-20 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -62,6 +89,15 @@
     "price": 19000,
     "reviewRate": 2.5,
     "reviewCount": 565,
+    "place": "동대문",
+    "date": [
+      {
+        "time_1": "2023-03-22 "
+      },
+      {
+        "time_2": "2023-03-22 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -81,6 +117,15 @@
     "price": 19000,
     "reviewRate": 2.5,
     "reviewCount": 565,
+    "place": "대야동",
+    "date": [
+      {
+        "time_1": "2023-03-25 "
+      },
+      {
+        "time_2": "2023-03-25 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -100,6 +145,15 @@
     "price": 19000,
     "reviewRate": 2.5,
     "reviewCount": 565,
+    "place": "연남동",
+    "date": [
+      {
+        "time_1": "2023-03-27 "
+      },
+      {
+        "time_2": "2023-03-27 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -119,6 +173,15 @@
     "price": 19000,
     "reviewRate": 2.5,
     "reviewCount": 565,
+    "place": "연희동",
+    "date": [
+      {
+        "time_1": "2023-03-29 "
+      },
+      {
+        "time_2": "2023-03-29 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
@@ -138,6 +201,15 @@
     "price": 19000,
     "reviewRate": 2.5,
     "reviewCount": 565,
+    "place": "상암동",
+    "date": [
+      {
+        "time_1": "2023-03-31 "
+      },
+      {
+        "time_2": "2023-03-31 "
+      }
+    ],
     "hashTag": [
       {
         "id": 1,
