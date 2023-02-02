@@ -45,7 +45,7 @@ const CategoryBarContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
 `;
 
 const CategoryBarWrapper = styled.div`
@@ -57,7 +57,7 @@ const CategoryBarWrapper = styled.div`
 
 const CategoryContents = styled.div`
   width: 78px;
-  margin: 30px 15px;
+  margin: 30px 30px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -65,7 +65,7 @@ const CategoryContents = styled.div`
 
 const CategoryBarImg = styled.img`
   width: 44px;
-  margin: 0 auto;
+  margin: 10px auto;
 `;
 const CategoryBarLabel = styled.label`
   margin-top: 10px;
