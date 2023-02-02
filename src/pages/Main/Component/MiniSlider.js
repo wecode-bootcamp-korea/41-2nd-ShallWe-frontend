@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import { API } from '../../../config';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -8,14 +9,12 @@ import { AiOutlineRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const MiniSlider = () => {
-  //부모 컴포넌트에서 받은 state와 method
-
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.52:3000/movies/category')
+    fetch(`${API.CATEGORY}`)
       .then((result) => result.json())
-      .then((data) => setProduct(data.movieCategory));
+      .then((data) => setProduct(data));
   }, []);
 
   return (
@@ -49,12 +48,12 @@ const MiniSlider = () => {
                   <ProductLink key={id} to={`/Category/${id}`}>
                     <h1>{item.title}</h1>
                     <h3>{parseInt(item.price)}원</h3>
-                    <p>{item.genre}</p>
+                    <p>{item.movieGenre[0].movieGenreName}</p>
+                    <PlaceTime>
+                      <p>{item.meetingData[0].meetingPlaceAddress}</p>
+                      <p>{item.meetingData[0].meetingTime}</p>
+                    </PlaceTime>
                   </ProductLink>
-                  <div>
-                    {/* <span># {item.place}</span>
-                    <span># {item.date[0].time_1}</span>  // 장소, 시간 데이터가 들어올 자리! 백엔드 구성 기다리는 중!*/}
-                  </div>
                 </SlideCardBottom>
               </SlideCard>
             );
@@ -120,6 +119,7 @@ const SliderContentsContainer = styled.div`
 
 const SlideCard = styled.div`
   margin: 0 auto;
+  background-color: #f9f9f9;
 `;
 
 const SlideCardTop = styled.div`
@@ -186,10 +186,17 @@ const SlideCardBottom = styled.div`
     }
   }
 `;
-
+const PlaceTime = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  p {
+    font-size: 12px;
+  }
+`;
 const NextButton = styled.div`
   position: relative;
-  top: -250px;
+  top: -243px;
   left: 1200px;
   border-radius: 50px;
   background-color: lightgray;
