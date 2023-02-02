@@ -1,6 +1,6 @@
 import React from 'react';
-import Slide from '../ListPage/Slide';
-import MiniSlider from '../ListPage/MiniSlider';
+import Slide from './Component/Slide';
+import MiniSlider from './Component/MiniSlider';
 
 const Main = () => {
   return (

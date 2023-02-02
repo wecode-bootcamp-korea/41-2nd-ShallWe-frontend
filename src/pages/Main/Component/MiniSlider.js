@@ -1,12 +1,11 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import theme from '../../styles/theme';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import movieIcon from './images/movie.png';
 import { AiOutlineRight } from 'react-icons/ai';
-import { symbol } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const MiniSlider = () => {
   //부모 컴포넌트에서 받은 state와 method
@@ -14,9 +13,9 @@ const MiniSlider = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch('/data/category.json')
+    fetch('http://10.58.52.52:3000/movies/category')
       .then((result) => result.json())
-      .then((data) => setProduct(data));
+      .then((data) => setProduct(data.movieCategory));
   }, []);
 
   return (
@@ -28,28 +27,33 @@ const MiniSlider = () => {
           <p>이 영화는 어때요?</p>
         </SliderTitleLeft>
         <SliderTitleRight>
-          <span>더보기</span>
-          <div>
-            <AiOutlineRight />
-          </div>
+          <ProductLink to="/Category">
+            <span>더보기</span>
+            <span>
+              <AiOutlineRight />
+            </span>
+          </ProductLink>
         </SliderTitleRight>
       </SliderTilte>
       <SliderContentsContainer>
         <Slider {...settings}>
-          {product.map((item) => {
-            console.log(item);
+          {product.map((item, id) => {
             return (
               <SlideCard>
-                <SlideCardTop>
-                  <img src={item.thumbnail} alt={item.title} />
-                </SlideCardTop>
+                <ProductLink key={id} to={`/Category/${id}`}>
+                  <SlideCardTop>
+                    <img src={item.thumbnail} alt={item.title} />
+                  </SlideCardTop>
+                </ProductLink>
                 <SlideCardBottom>
-                  <h1>{item.title}</h1>
-                  <h3>{item.price}원</h3>
-                  <p>{item.genre}</p>
+                  <ProductLink key={id} to={`/Category/${id}`}>
+                    <h1>{item.title}</h1>
+                    <h3>{parseInt(item.price)}원</h3>
+                    <p>{item.genre}</p>
+                  </ProductLink>
                   <div>
-                    <span># {item.place}</span>
-                    <span># {item.date[0].time_1}</span>
+                    {/* <span># {item.place}</span>
+                    <span># {item.date[0].time_1}</span>  // 장소, 시간 데이터가 들어올 자리! 백엔드 구성 기다리는 중!*/}
                   </div>
                 </SlideCardBottom>
               </SlideCard>
@@ -68,11 +72,14 @@ const SliderTilte = styled.div`
   display: flex;
   font-weight: 700;
   padding: 0px 25px;
-  margin: 0 auto 20px;
+  margin: 50px auto 20px;
   img {
     margin-right: 10px;
     width: 45px;
   }
+`;
+const ProductLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const SliderTitleLeft = styled.div`
@@ -90,13 +97,14 @@ const SliderTitleLeft = styled.div`
 const SliderTitleRight = styled.div`
   flex-grow: 1;
   display: flex;
-  -webkit-box-pack: end;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   color: #007aff;
   cursor: pointer;
+
   span {
     margin-bottom: 2.5px;
+    text-decoration: none;
   }
   div {
     width: 15px;
@@ -110,22 +118,36 @@ const SliderContentsContainer = styled.div`
   margin: 0 auto;
 `;
 
-const SlideCard = styled.div``;
+const SlideCard = styled.div`
+  margin: 0 auto;
+`;
+
 const SlideCardTop = styled.div`
-  ${theme.common.flexCenter};
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 5px;
+  cursor: pointer;
+
   img {
-    width: 250px;
-    height: 400px;
+    background-color: gray;
+    height: 250px;
     object-fit: contain;
-    border-radius: 20px;
+    margin: 10px auto;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 `;
 const SlideCardBottom = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 25px;
+  padding-left: 40px;
   margin-bottom: 25px;
   padding-top: 15px;
+  width: 250px;
+  margin: 0 auto;
   h1 {
     height: 41px;
     font-size: 15px;
@@ -150,6 +172,7 @@ const SlideCardBottom = styled.div`
   }
   div {
     display: flex;
+    width: 180px;
     flex-direction: column;
     font-size: 13px;
     font-weight: normal;
@@ -164,53 +187,37 @@ const SlideCardBottom = styled.div`
   }
 `;
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        position: 'relative',
-        top: '-380px',
-        left: '1200px',
-        borderRadius: '50px',
-        backgroundColor: 'lightgray',
-        display: 'block',
-        color: 'gray',
-        width: '25px',
-        height: '25px',
-        cursor: 'pointer',
-        padding: '2.5px 2.5px',
-      }}
-      onClick={onClick}
-    />
-  );
-}
+const NextButton = styled.div`
+  position: relative;
+  top: -250px;
+  left: 1200px;
+  border-radius: 50px;
+  background-color: lightgray;
+  display: block;
+  color: gray;
+  width: 25px;
+  height: 25px;
+  padding: 2.5px 2.5px;
+  &:hover {
+    background-color: #b0b0b0;
+  }
+`;
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        position: 'relative',
-        top: '200px',
-        right: '320px',
-        borderRadius: '50px',
-        backgroundColor: 'lightgray',
-        display: 'block',
-        color: 'gray',
-        width: '25px',
-        height: '25px',
-        cursor: 'pointer',
-        padding: '2.5px 2.5px',
-      }}
-      onClick={onClick}
-    />
-  );
-}
+const PrevButton = styled.div`
+  position: relative;
+  top: 200px;
+  right: 320px;
+  border-radius: 50px;
+  background-color: lightgray;
+  display: block;
+  color: gray;
+  width: 25px;
+  height: 25px;
+  padding: 2.5px 2.5px;
+  &:hover {
+    background-color: #b0b0b0;
+  }
+`;
 
 const settings = {
   dots: true,
@@ -219,8 +226,8 @@ const settings = {
   slidesToShow: 4,
   slidesToScroll: 4,
   initialSlide: 4,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
+  nextArrow: <NextButton />,
+  prevArrow: <PrevButton />,
   responsive: [
     {
       breakpoint: 1024,
@@ -248,24 +255,3 @@ const settings = {
     },
   ],
 };
-
-// const ButtonStyle = (props) => styled.div`
-// const {className, style, onClick} = props;
-
-// className : {className}
-//       style = {{
-//         ...style,
-//         position: 'relative',
-//         top: '-380px',
-//         left: '1200px',
-//         borderRadius: '50px',
-//         backgroundColor: 'lightgray',
-//         display: 'block',
-//         color: 'gray',
-//         width: '25px',
-//         height: '25px',
-//         cursor: 'pointer',
-//         padding: '2.5px 2.5px',
-//       }}
-//       onClick :{onClick}
-// `;

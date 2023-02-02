@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import theme from '../../styles/theme';
+import theme from '../../../styles/theme';
 import timer from './images/Timer.png';
 import { AiOutlineRight } from 'react-icons/ai';
 
