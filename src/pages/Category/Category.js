@@ -5,6 +5,7 @@ import ProductCards from './ProductCard';
 import theme from '../../styles/theme';
 import { AiOutlineDown } from 'react-icons/ai';
 import check from './images/check.png';
+import { data } from 'jquery';
 
 const Category = () => {
   const [modalSwitcher, setModalSwitcher] = useState(-1);
@@ -16,11 +17,13 @@ const Category = () => {
   const [loadFin, setLoadFin] = useState(false);
 
   const fetchmovieData = async (page) => {
-    const res = await fetch(`${API.CATEGORY}?page=${page}`);
+    const res = await fetch(`http://152.67.208.118:3000/shallWeMovie/category?page=${page}`);
     const data = await res.json();
     setMovieData((prev) => [...prev, ...data]);
     setLoadFin(true);
   };
+
+  console.log(movieData);
 
   useEffect(() => {
     fetchmovieData(page);

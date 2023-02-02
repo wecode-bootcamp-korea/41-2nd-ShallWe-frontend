@@ -9,7 +9,7 @@ const ProductCards = ({ result }) => {
       <Product key={result.id}>
         <ProductLink to={`/detail/${result.id}`}>
           <ProductImg>
-            <img src={result.thumbnail} alt="대표사진" />
+            <img src={result.thumbnail_url} alt="대표사진" />
           </ProductImg>
           <ProductDescription>
             <ProductTitle> {result.title} </ProductTitle>
@@ -22,7 +22,7 @@ const ProductCards = ({ result }) => {
               <p />
               <ProductPlaceTime>
                 <div>{result.meetingData[0].meetingPlaceAddress}</div>
-                <div>{result.meetingData[0].meetingTime}</div>
+                <div>{result.meeting_date.slice(0, 10)}</div>
               </ProductPlaceTime>
             </ProductHeshTag>
           </ProductDescription>
