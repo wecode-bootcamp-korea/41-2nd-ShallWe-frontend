@@ -11,10 +11,10 @@ const Nav = () => {
             <NavMainMenuImage src="../images/logo.png" alt="로고 이미지" />
           </Link>
           <NavMainMenuList>
-            <StyledLink to="/subscribeinfo">
+            <StyledLink to="/subscription">
               <NavMainMenuListItem>구독서비스</NavMainMenuListItem>
             </StyledLink>
-            <StyledLink to="/productlist">
+            <StyledLink to="/category">
               <NavMainMenuListItem>쉘위마켓</NavMainMenuListItem>
             </StyledLink>
             <Link to="/Search">
@@ -23,9 +23,15 @@ const Nav = () => {
           </NavMainMenuList>
         </NavMainMenu>
         <NavSideMenuList>
-          <StyledLink to="/signin">
+          <StyledLink to="/login">
             <NavSideMenuListItem>로그인</NavSideMenuListItem>
           </StyledLink>
+          <Link to="/mypage">
+            <NavSideMenuListImage
+              src={require('../../pages/MyPage/images/user.png')}
+              alt="마이페이지"
+            />
+          </Link>
         </NavSideMenuList>
       </NavMain>
     </NavigateMain>
@@ -33,8 +39,6 @@ const Nav = () => {
 };
 
 const NavigateMain = styled.div`
-  ${({ theme }) => theme.mixin.flex('center', 'center', 'center')}
-
   position: sticky;
   border: none;
   border-bottom: 0.5px solid rgb(224, 224, 224);
@@ -43,6 +47,8 @@ const NavigateMain = styled.div`
   top: 0;
   width: 100%;
   background-color: white;
+  display: flex;
+  justify-content: center;
 `;
 
 const NavMain = styled.div`
@@ -93,6 +99,11 @@ const NavSideMenuList = styled.ul`
 const NavSideMenuListItem = styled.li`
   cursor: pointer;
   margin-right: 20px;
+`;
+
+const NavSideMenuListImage = styled.img`
+  width: 35px;
+  cursor: pointer;
 `;
 
 const StyledLink = styled(Link)`
