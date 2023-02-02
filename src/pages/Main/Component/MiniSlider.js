@@ -17,6 +17,8 @@ const MiniSlider = () => {
       .then((data) => setProduct(data));
   }, []);
 
+  console.log(product);
+
   return (
     <>
       <SliderTilte>
@@ -36,22 +38,22 @@ const MiniSlider = () => {
       </SliderTilte>
       <SliderContentsContainer>
         <Slider {...settings}>
-          {product.map((item, id) => {
+          {product.map((item) => {
             return (
               <SlideCard>
-                <ProductLink key={id} to={`/Category/${id}`}>
+                <ProductLink key={item.id} to={`/detail/${item.id}`}>
                   <SlideCardTop>
-                    <img src={item.thumbnail} alt={item.title} />
+                    <img src={item.thumbnail_url} alt={item.title} />
                   </SlideCardTop>
                 </ProductLink>
                 <SlideCardBottom>
-                  <ProductLink key={id} to={`/Category/${id}`}>
+                  <ProductLink key={item.id} to={`/detail/${item.id}`}>
                     <h1>{item.title}</h1>
                     <h3>{parseInt(item.price)}원</h3>
                     <p>{item.movieGenre[0].movieGenreName}</p>
                     <PlaceTime>
                       <p>{item.meetingData[0].meetingPlaceAddress}</p>
-                      <p>{item.meetingData[0].meetingTime}</p>
+                      <p>{item.meeting_date.slice(0, 10)}</p>
                     </PlaceTime>
                   </ProductLink>
                 </SlideCardBottom>
