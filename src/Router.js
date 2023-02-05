@@ -13,6 +13,7 @@ import UserInfo from './pages/MyPage/components/UserInfo';
 import Review from './pages/MyPage/components/Review';
 import Refunds from './pages/MyPage/components/Refunds';
 import Subscribe from './pages/MyPage/components/Subscribe';
+import Intro from './pages/Main/Intro';
 import MovieCart from './pages/MovieCart/MovieCart';
 import Detail from './pages/MovieDetail/Detail';
 
@@ -21,6 +22,7 @@ export default function Router() {
     <BrowserRouter>
       <Nav />
       <Routes>
+        <Route path="/intro" element={<Intro />} />
         <Route path="/" element={<Main />} />
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
