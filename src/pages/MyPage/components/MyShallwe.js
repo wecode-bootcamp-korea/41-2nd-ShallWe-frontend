@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { API } from '../../../config';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -7,47 +8,63 @@ const INFO_LISTS = [
     text: '구독내역',
     src: 'bill',
     alt: 'bill-icon',
-    navigate: '/subscription',
+    navigate: '/mypage/subscribe',
   },
   {
-    text: '취소환불',
-    src: 'payback',
-    alt: 'payback-icon',
-    navigate: '/refunds',
-  },
-  {
-    text: '영화정보',
+    text: '영화/리뷰',
     src: 'movie',
     alt: 'movie-icon',
-    navigate: '/movies',
+    navigate: '/mypage/reviews',
   },
   {
     text: '회원정보',
     src: 'user',
     alt: 'user-icon',
-    navigate: '/userinfo',
+    navigate: '/mypage/userinfo',
   },
   {
-    text: '리뷰',
-    src: 'review',
-    alt: 'review-icon',
-    navigate: 'mypage/reviews',
+    text: '장바구니',
+    src: 'ticket',
+    alt: 'ticket-icon',
+    navigate: '/mypage/moviecart',
+  },
+  {
+    text: '취소환불',
+    src: 'payback',
+    alt: 'payback-icon',
+    navigate: '/mypage/refunds',
   },
   {
     text: '고객센터',
     src: 'call',
     alt: 'call-icon',
-    navigate: '/call',
+    navigate: '/mypage/call',
   },
 ];
 
 const MyShallwe = () => {
+  const [userInfo, setUserInfo] = useState([]);
+
+  useEffect(() => {
+    fetch(`${API.MYINFO}`, {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserInfo(data.data[0]);
+      });
+  }, []);
+
   return (
     <Container>
       <QueryWrapper>
         <MemberInfoBox>
           <MeberInfo>
-            <div className="name">제이크</div>
+            <div className="name">{userInfo.nickname}</div>
             <div>님</div>
           </MeberInfo>
           <MeberInfo>
