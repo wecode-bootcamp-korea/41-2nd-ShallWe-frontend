@@ -12,9 +12,7 @@ const InfoSide = ({ movieData }) => {
         </MovieInfoImg>
         <MovieInfoText>
           <MovieInfoName>{name}</MovieInfoName>
-          <MovieInfoDescription>
-            {description}충격멜로,주인공의 스테이지 퍼포먼스
-          </MovieInfoDescription>
+          <MovieInfoDescription>{description}충격멜로, 스테이지 퍼포먼스</MovieInfoDescription>
           <MovieInfoGenre>장르 : {genre}</MovieInfoGenre>
           <MovieInfoLocation>위치: {location}</MovieInfoLocation>
           {/* <MovieInfoSummary>줄거리: {summary}</MovieInfoSummary> */}
@@ -45,10 +43,11 @@ const MovieImg = styled.img`
   margin: auto;
 `;
 const MovieInfoText = styled.div`
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 30px;
 `;
 const MovieInfoName = styled.div`
+  margin-top: 10px;
   margin-bottom: 20px;
   font-weight: bolder;
   font-size: 30px;

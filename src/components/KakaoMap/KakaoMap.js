@@ -1,7 +1,7 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
 
-export default function Kakaomap({ item }) {
+export default function Kakaomap() {
   return (
     <MapDisplay id="map">
       <Map

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import InfoSide from './InfoSide';
 import DetailOption from './DetailOption';
+import KaKaoMap from '../../components/KakaoMap/KakaoMap';
 // import { useParams } from 'react-router-dom';
 
 const Detail = () => {
@@ -22,6 +23,7 @@ const Detail = () => {
         <InfoSide movieData={movieData} />
         <DetailOption movieData={movieData} />
       </MovieDetailWrap>
+      <KaKaoMap />
     </DetailWrap>
   );
 };
