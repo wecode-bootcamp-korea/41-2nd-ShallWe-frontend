@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "리메인",
+    "quantity": 1,
+    "time": "7시 40분",
+    "imageUrl": "https://cdn.ikoreanspirit.com/news/photo/202008/59719_76761_2252.jpg",
+    "date": "2023-02-10",
+    "price": 6000,
+    "location": "ShalWe 선릉점(자율좌석)",
+    "genre": "Melodrama",
+    "summary": ""
+  },
+  {
+    "id": 2,
+    "name": "다음 소희",
+    "quantity": 1,
+    "time": "4시 30분",
+    "imageUrl": "https://indieground.kr/fileFolder/3a41f4d1-96e9-4d43-a062-613c041f4f2a_jpg",
+    "date": "2023-02-10",
+    "price": 6000,
+    "location": "ShallWe 선릉점(자율좌석)",
+    "genre": "Melodrama",
+    "summary": ""
+  }
+]
