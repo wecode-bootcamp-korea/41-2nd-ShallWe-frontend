@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import MyShallwe from '../MyPage/components/MyShallwe';
 
 const InfoSide = ({ movieData }) => {
-  const { title, price, plot, thumbnail_url, movie_genre, date, running_time } = movieData;
+  const { title, price, hashtag, thumbnail_url, movie_genre, date, running_time } = movieData;
 
   return (
     <Detail>
@@ -12,13 +13,13 @@ const InfoSide = ({ movieData }) => {
         </MovieInfoImg>
         <MovieInfoText>
           <MovieInfoName>{title}</MovieInfoName>
-          <MovieInfoDescription>{plot}</MovieInfoDescription>
           <MovieInfoGenre>장르 : {movie_genre}</MovieInfoGenre>
-          <MovieInfoLocation>위치: {'11'}</MovieInfoLocation>
+          <MovieInfoLocation>위치: Shallwe위워크 선릉점</MovieInfoLocation>
           <MovieRunningTime>러닝타임: {running_time}</MovieRunningTime>
           <MovieDate>상영일: {date}</MovieDate>
+          <MovieInfoDescription>{hashtag}</MovieInfoDescription>
           <MovieInfoPrice>
-            <MoviePrice> 판매가격: {price}₩</MoviePrice>
+            <MoviePrice>판매가격: {Math.floor(price)}₩</MoviePrice>
           </MovieInfoPrice>
         </MovieInfoText>
       </MovieInfoWrap>
@@ -36,10 +37,11 @@ const MovieInfoWrap = styled.div`
 const MovieInfoImg = styled.div`
   width: 330px;
   height: 410px;
+  object-fit: contain;
 `;
 const MovieImg = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 400px;
   margin: auto;
 `;
 const MovieInfoText = styled.div`
@@ -53,10 +55,14 @@ const MovieInfoName = styled.div`
   color: #8b8b8b;
 `;
 const MovieInfoDescription = styled.div`
+  margin-top: 20px;
   margin-bottom: 10px;
   font-weight: bolder;
-  font-size: 22px;
-  color: rgb(255, 186, 0);
+  font-size: 17px;
+  line-height: 20px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  color: #f6c72e;
 `;
 
 const MovieInfoLocation = styled.div`
@@ -75,7 +81,7 @@ const MovieInfoPrice = styled(MovieInfoLocation)`
   color: #757575;
 `;
 const MoviePrice = styled.div`
-  margin-top: 100px;
+  margin-top: 25px;
   font-size: 25px;
 `;
 const MovieInfoGenre = styled(MovieInfoLocation)`

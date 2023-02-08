@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const DetailOption = ({ movieData }) => {
-  const { id, price } = movieData;
+  const { meetings, price } = movieData;
+  console.log(meetings, price);
   const [count, setCount] = useState(1);
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
@@ -13,10 +14,10 @@ const DetailOption = ({ movieData }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({
-        id: id,
+        id: meetings[0].meeting_id,
         counts: count,
         price: price * count,
       }),
@@ -71,9 +72,10 @@ const DetailOption = ({ movieData }) => {
 
 const MovieCart = styled.div`
   width: 400px;
+  height: fit-content;
   max-height: 100vh;
-  margin-top: 40px;
-  padding: 30px 10px;
+  margin-top: 35px;
+  padding: 20px 10px;
   box-shadow: rgb(0 0 0 / 16%) 0px 0px 3px 0px;
   border-radius: 10px;
   font-weight: bold;
@@ -88,7 +90,7 @@ const MovieQuantityWrap = styled.div`
 const MovieQuantity = styled.div`
   ${({ theme }) => theme.mixin.flex(null, 'space-between', 'center')};
   width: 100%;
-  height: 55px;
+  height: 45px;
   margin-bottom: 20px;
   border-radius: 3px;
   border: 1px solid rgb(224, 224, 224);
@@ -109,7 +111,7 @@ const Count = styled.div``;
 
 const PlusCount = styled(MinusCount)`
   border-left: 1px solid rgb(224, 224, 224);
-  margin-top: 6px;
+  margin-top: 1px;
   font-size: 25px;
   cursor: pointer;
 `;
@@ -126,7 +128,7 @@ const DeliveryWrap = styled(MovieQuantity)`
   justify-content: left;
   padding: 10px;
   margin-top: 10px;
-  margin-left: -10px;
+  margin-left: -3px;
   background-color: #f7f7f7;
   border: none;
   border-radius: 10px;

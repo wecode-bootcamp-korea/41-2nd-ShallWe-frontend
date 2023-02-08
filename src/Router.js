@@ -8,11 +8,12 @@ import Category from './pages/Category/Category';
 import KakaoLogin from './pages/Login/KakaoLogin';
 import Subscription from './pages/Subscription/Subscription';
 import Search from './pages/Search/Search';
-// import PaySuccess from './pages/MovieCart/PaySuccess';
 import MyPage from './pages/MyPage/MyPage';
 import UserInfo from './pages/MyPage/components/UserInfo';
 import Review from './pages/MyPage/components/Review';
 import Refunds from './pages/MyPage/components/Refunds';
+import Subscribe from './pages/MyPage/components/Subscribe';
+import MovieCart from './pages/MovieCart/MovieCart';
 import Detail from './pages/MovieDetail/Detail';
 
 export default function Router() {
@@ -25,6 +26,8 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
+        <Route path="/subscription" element={<Subscription />} />
+        <Route path="/moviecart" element={<MovieCart />} />
         <Route path="/subscribe" element={<Subscription />} />
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:id" element={<Detail />} />
