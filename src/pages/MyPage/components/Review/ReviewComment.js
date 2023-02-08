@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../../../components/Button';
-
 import ReviewModal from './ReviewModal';
 import ReviewEdit from './ReviewEdit';
-
 import { ButtonWrapper } from '../Review';
 
-const ReviewComment = ({ movie }) => {
+const ReviewComment = ({ movie, nickname }) => {
   const [reviews, setReviews] = useState(movie.reviews);
   const [sortedMovies, setSortedMovies] = useState(movie.movies);
   const [isShow, setIsShow] = useState(false);
@@ -36,14 +34,14 @@ const ReviewComment = ({ movie }) => {
     <>
       <ReviewItem>
         <ReviewTitle>
-          <div className="nickname">Nickname</div>
+          <div className="nickname">{nickname} 님깨서 달으신 리뷰입니다</div>
           <div className="movie-title mr-10">{movie.movies.movie_title}</div>
           <div className="date">{movie.created_at}</div>
         </ReviewTitle>
         <ReviewContent>
           <ReviewContentWrapper>
-            <div>{movie.movies.plot}</div>
-            <img src={movie.movies.thumbnail_url} alt="사진" />
+            <div className="review-plot">{movie.movies.plot}</div>
+            <img className="review-image" src={movie.movies.thumbnail_url} alt="사진" />
             <Button
               width="80px"
               height="50px"
@@ -97,6 +95,20 @@ const ReviewContentWrapper = styled.div`
   color: #707070;
 
   margin-bottom: 50px;
+
+  .review-plot {
+    width: 20%;
+    height: auto;
+  }
+
+  .review-image {
+    width: 25%;
+    height: 200px;
+  }
+
+  ${Button} {
+    width: 20%;
+  }
 `;
 
 const ReviewContent = styled.div`

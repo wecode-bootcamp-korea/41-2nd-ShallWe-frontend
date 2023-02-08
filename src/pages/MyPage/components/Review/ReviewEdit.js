@@ -52,71 +52,77 @@ const ReviewEdit = ({ review, handleDelete, onEdit }) => {
   console.log(review);
 
   return (
-    <ReviewContentWrapper key={review.review_id}>
-      {isEdit ? (
-        <Textarea
-          width="700px"
-          type="text"
-          value={newReview}
-          onChange={(e) => {
-            setNewReview(e.target.value);
-          }}
-        />
+    <>
+      {review.review === null ? (
+        ''
       ) : (
-        <p>{review.review}</p>
+        <ReviewContentWrapper key={review.review_id}>
+          {isEdit ? (
+            <Textarea
+              width="700px"
+              type="text"
+              value={newReview}
+              onChange={(e) => {
+                setNewReview(e.target.value);
+              }}
+            />
+          ) : (
+            <p>{review.review}</p>
+          )}
+          {isEdit ? (
+            <ButtonBox>
+              <Button
+                width="70px"
+                height="50px"
+                fontSize="10px"
+                padding="10px"
+                onClick={() => {
+                  handleEdit();
+                  handleSendUpdatedReview();
+                  handleQuitEdit();
+                }}>
+                수정완료
+              </Button>
+              <Button
+                width="70px"
+                height="50px"
+                fontSize="10px"
+                padding="10px"
+                onClick={() => {
+                  handleShowEdit();
+                  handleQuitEdit();
+                }}>
+                수정취소
+              </Button>
+            </ButtonBox>
+          ) : (
+            <ButtonBox>
+              <Button
+                width="70px"
+                height="50px"
+                fontSize="10px"
+                padding="10px"
+                onClick={() => {
+                  handleShowEdit();
+                }}>
+                수정하기
+              </Button>
+              <Button
+                width="70px"
+                height="50px"
+                fontSize="10px"
+                padding="10px"
+                onClick={() => {
+                  handleDelete(review.review_id);
+                  handleSendDeletedReview();
+                }}>
+                삭제하기
+              </Button>
+            </ButtonBox>
+          )}
+        </ReviewContentWrapper>
       )}
-      {isEdit ? (
-        <ButtonBox>
-          <Button
-            width="70px"
-            height="50px"
-            fontSize="10px"
-            padding="10px"
-            onClick={() => {
-              handleEdit();
-              handleSendUpdatedReview();
-              handleQuitEdit();
-            }}>
-            수정완료
-          </Button>
-          <Button
-            width="70px"
-            height="50px"
-            fontSize="10px"
-            padding="10px"
-            onClick={() => {
-              handleShowEdit();
-              handleQuitEdit();
-            }}>
-            수정취소
-          </Button>
-        </ButtonBox>
-      ) : (
-        <ButtonBox>
-          <Button
-            width="70px"
-            height="50px"
-            fontSize="10px"
-            padding="10px"
-            onClick={() => {
-              handleShowEdit();
-            }}>
-            수정하기
-          </Button>
-          <Button
-            width="70px"
-            height="50px"
-            fontSize="10px"
-            padding="10px"
-            onClick={() => {
-              handleDelete(review.review_id);
-              handleSendDeletedReview();
-            }}>
-            삭제하기
-          </Button>
-        </ButtonBox>
-      )}
-    </ReviewContentWrapper>
+    </>
   );
 };
 

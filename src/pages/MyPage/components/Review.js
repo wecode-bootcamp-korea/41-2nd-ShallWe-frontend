@@ -8,6 +8,7 @@ import { API } from '../../../config';
 
 const Review = () => {
   const [movie, setMovie] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
     fetch(`${API.MYREVIEW}`, {
@@ -19,15 +20,31 @@ const Review = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        // console.log(data);
         setMovie(data.orders);
       });
   }, []);
 
+  useEffect(() => {
+    fetch(`${API.MYINFO}`, {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('TOKEN'),
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserInfo(data.data[0]);
+      });
+  }, []);
+
+  console.log(userInfo);
   return (
     <>
       <MyBox>
         {movie.map((movie) => {
-          return <ReviewComment key={movie.order_id} movie={movie} />;
+          return <ReviewComment key={movie.order_id} movie={movie} nickname={userInfo.nickname} />;
         })}
       </MyBox>
     </>

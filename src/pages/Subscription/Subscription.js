@@ -4,6 +4,7 @@ import SubCard from './components/SubCard';
 
 const CARD_LISTS = [
   {
+    id: 1,
     title: '쉘위티켓',
     price: '20,000',
     img: 'subimg1',
@@ -19,6 +20,7 @@ const CARD_LISTS = [
     ],
   },
   {
+    id: 2,
     title: '쉘위박스',
     price: '25,000',
     img: 'subimg2',
@@ -44,8 +46,8 @@ const CARD_LISTS = [
 const Subscription = () => {
   return (
     <SubscriptionContainer>
-      {CARD_LISTS.map((card, idx) => {
-        return <SubCard card={card} key={idx} data={CARD_LISTS} />;
+      {CARD_LISTS.map((card) => {
+        return <SubCard card={card} key={card.id} />;
       })}
     </SubscriptionContainer>
   );
@@ -53,7 +55,7 @@ const Subscription = () => {
 
 export default Subscription;
 
-const SubscriptionContainer = styled.div`
+export const SubscriptionContainer = styled.div`
   width: 100%;
   height: 859px;
   background-color: #f7f7f7;

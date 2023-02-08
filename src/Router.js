@@ -16,6 +16,8 @@ import Subscribe from './pages/MyPage/components/Subscribe';
 import Intro from './pages/Main/Intro';
 import MovieCart from './pages/MovieCart/MovieCart';
 import Detail from './pages/MovieDetail/Detail';
+import Cart from './pages/MyPage/components/Cart';
+import Call from './pages/MyPage/components/Call';
 
 export default function Router() {
   return (
@@ -36,7 +38,9 @@ export default function Router() {
           <Route path="subscribe" element={<Subscribe />} />
           <Route path="reviews" element={<Review />} />
           <Route path="userinfo" element={<UserInfo />} />
+          <Route path="moviecart" element={<Cart />} />
           <Route path="refunds" element={<Refunds />} />
+          <Route path="call" element={<Call />} />
         </Route>
       </Routes>
       <Footer />
