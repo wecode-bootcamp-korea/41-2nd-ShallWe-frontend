@@ -36,18 +36,6 @@ const Review = () => {
 
 export default Review;
 
-const ShowReview = styled.div`
-  display: flex;
-  margin: auto;
-  min-width: 1144px;
-  width: 1144px;
-  margin: auto;
-
-  ${Button} {
-    margin-right: 20px;
-  }
-`;
-
 export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
