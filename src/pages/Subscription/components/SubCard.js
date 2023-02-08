@@ -3,9 +3,29 @@ import styled from 'styled-components';
 import Card from '../../../components/Card';
 import Button from '../../../components/Button';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../../config';
 
 const SubCard = ({ card }) => {
   const navigate = useNavigate();
+
+  const autoKakaPay = (id) => {
+    fetch(`${API.SUBSCRIPTION}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY3NTU4NDcyNX0.tylNeMdSFT6iAxe6kJyfuoDpKduEoik4kTYM_PfiW1c',
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({
+        subscriptionTypeId: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        window.location.href = result.url;
+      });
+  };
 
   return (
     <ItemCard className="mr-30">
@@ -37,7 +57,10 @@ const SubCard = ({ card }) => {
             height="28px"
             bgColor="rgb(222, 230, 239)"
             color="#0097F3"
-            fontSize="11px">
+            fontSize="11px"
+            onClick={() => {
+              autoKakaPay(card.id);
+            }}>
             후원하기
           </Button>
         </TextCard>

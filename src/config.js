@@ -7,4 +7,8 @@ export const API = {
   CATEGORY: `${BASE_URL}/movies/category`,
   MOVIECART: `${BASE_URL}/myShallWe/pick`,
   KAKAOPAY: `${BASE_URL}/myShallWe/orders/pick`,
+  SUBSCRIPTION: `${BASE_URL}/myShallWe/orders/subscription`,
+  SUBSCRIBE: `${BASE_URL}/myShallWe/subscriptions`,
+  REFUNDS: `${BASE_URL}/myShallWe/refunds/subscription`,
+  REFUNDDATA: `${BASE_URL}/myShallWe/refunds`,
 };
