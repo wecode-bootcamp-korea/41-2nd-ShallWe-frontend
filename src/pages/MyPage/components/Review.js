@@ -6,12 +6,8 @@ import ReviewComment from './Review/ReviewComment';
 import Button from '../../../components/Button';
 import { API } from '../../../config';
 
-import { REVIEW_DATA_BACK } from './Review/ReviewData';
-
 const Review = () => {
-  // const [movie, setMovie] = useState([]);
-
-  const [movie, setMovie] = useState(REVIEW_DATA_BACK[0].orders);
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     fetch(`${API.MYREVIEW}`, {

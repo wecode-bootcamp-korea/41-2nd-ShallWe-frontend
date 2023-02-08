@@ -14,10 +14,10 @@ const Nav = () => {
             />
           </Link>
           <NavMainMenuList>
-            <StyledLink to="/subscribeinfo">
+            <StyledLink to="/subscription">
               <NavMainMenuListItem>구독서비스</NavMainMenuListItem>
             </StyledLink>
-            <StyledLink to="/productlist">
+            <StyledLink to="/category">
               <NavMainMenuListItem>쉘위마켓</NavMainMenuListItem>
             </StyledLink>
             <Link to="/Search">
@@ -26,13 +26,13 @@ const Nav = () => {
           </NavMainMenuList>
         </NavMainMenu>
         <NavSideMenuList>
-          <StyledLink to="/signin">
+          <StyledLink to="/login">
             <NavSideMenuListItem>로그인</NavSideMenuListItem>
           </StyledLink>
-          <Link to="/moviecart">
+          <Link to="/mypage">
             <NavSideMenuListImage
-              src="https://cdn-icons-png.flaticon.com/512/7695/7695110.png"
-              alt="장바구니 이미지"
+              src={require('../../pages/MyPage/images/user.png')}
+              alt="마이페이지"
             />
           </Link>
         </NavSideMenuList>

@@ -16,12 +16,9 @@ const UserInfo = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setUserInfo(data);
+        setUserInfo(data.data[0]);
       });
   }, []);
-
-  const [info] = userInfo;
 
   return (
     <MyBox>
@@ -32,7 +29,7 @@ const UserInfo = () => {
         <ContentDetail>
           <DetailItem>
             <div>닉네임</div>
-            <div>{info.nickname}</div>
+            <div>{userInfo.nickname}</div>
           </DetailItem>
           <DetailItem>
             <div>비밀번호</div>
@@ -40,7 +37,7 @@ const UserInfo = () => {
           </DetailItem>
           <DetailItem>
             <div>이메일</div>
-            <div>{info.email}</div>
+            <div>{userInfo.email}</div>
           </DetailItem>
           <DetailItem>
             <div>이메일 수신 이메일</div>

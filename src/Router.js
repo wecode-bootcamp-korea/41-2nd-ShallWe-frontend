@@ -7,12 +7,13 @@ import Login from './pages/Login/Login';
 import Category from './pages/Category/Category';
 import KakaoLogin from './pages/Login/KakaoLogin';
 import Subscription from './pages/Subscription/Subscription';
-import MovieCart from './pages/MovieCart/MovieCart';
 import Search from './pages/Search/Search';
 import MyPage from './pages/MyPage/MyPage';
 import UserInfo from './pages/MyPage/components/UserInfo';
 import Review from './pages/MyPage/components/Review';
 import Refunds from './pages/MyPage/components/Refunds';
+import Subscribe from './pages/MyPage/components/Subscribe';
+import MovieCart from './pages/MovieCart/MovieCart';
 
 export default function Router() {
   return (
@@ -20,18 +21,18 @@ export default function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
-        <Route path="/moviecart" element={<MovieCart />} />
+        <Route path="/subscription" element={<Subscription />} />
         <Route path="/mypage" element={<MyPage />}>
-          <Route path="userinfo" element={<UserInfo />} />
-          <Route path="subscription" element={<Subscription />} />
+          <Route path="subscribe" element={<Subscribe />} />
           <Route path="reviews" element={<Review />} />
+          <Route path="userinfo" element={<UserInfo />} />
+          <Route path="moviecart" element={<MovieCart />} />
           <Route path="refunds" element={<Refunds />} />
         </Route>
-        <Route path="/subscribe" element={<Subscription />} />
-        <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
     </BrowserRouter>
