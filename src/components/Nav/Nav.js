@@ -14,17 +14,10 @@ const Nav = () => {
             />
           </Link>
           <NavMainMenuList>
-<<<<<<< HEAD
-            <StyledLink to="/subscription">
-              <NavMainMenuListItem>구독서비스</NavMainMenuListItem>
-            </StyledLink>
-            <StyledLink to="/category">
-=======
             <StyledLink to="/subscribeinfo">
               <NavMainMenuListItem>구독서비스</NavMainMenuListItem>
             </StyledLink>
             <StyledLink to="/productlist">
->>>>>>> 3fdd54b (Add nav)
               <NavMainMenuListItem>쉘위마켓</NavMainMenuListItem>
             </StyledLink>
             <Link to="/Search">
@@ -33,15 +26,6 @@ const Nav = () => {
           </NavMainMenuList>
         </NavMainMenu>
         <NavSideMenuList>
-<<<<<<< HEAD
-          <StyledLink to="/login">
-            <NavSideMenuListItem>로그인</NavSideMenuListItem>
-          </StyledLink>
-          <Link to="/mypage">
-            <NavSideMenuListImage
-              src={require('../../pages/MyPage/images/user.png')}
-              alt="마이페이지"
-=======
           <StyledLink to="/signin">
             <NavSideMenuListItem>로그인</NavSideMenuListItem>
           </StyledLink>
@@ -49,7 +33,6 @@ const Nav = () => {
             <NavSideMenuListImage
               src="https://cdn-icons-png.flaticon.com/512/7695/7695110.png"
               alt="장바구니 이미지"
->>>>>>> 3fdd54b (Add nav)
             />
           </Link>
         </NavSideMenuList>

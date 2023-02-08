@@ -13,12 +13,8 @@ import MyPage from './pages/MyPage/MyPage';
 import UserInfo from './pages/MyPage/components/UserInfo';
 import Review from './pages/MyPage/components/Review';
 import Refunds from './pages/MyPage/components/Refunds';
-<<<<<<< HEAD
 import Subscribe from './pages/MyPage/components/Subscribe';
 import MovieCart from './pages/MovieCart/MovieCart';
-=======
-import Detail from './pages/MovieDetail/Detail';
->>>>>>> 052d24a (충돌수정)
 
 export default function Router() {
   return (
