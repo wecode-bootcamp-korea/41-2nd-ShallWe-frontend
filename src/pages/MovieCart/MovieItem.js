@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MovieItem = (movie) => {
-  const { id, name, price, time, imageUrl, deleteItem, itemPlusCount, itemMinusCount, quantity } =
-    movie;
+const MovieItem = (props) => {
+  const { deleteItem, itemPlusCount, itemMinusCount, orderMovieList, setOrderMovieList, ...movie } =
+    props;
+  const { id, counts, price, meeting_date, time, name, thumbnail_url } = movie;
 
   return (
     <MovieItemWrap>
@@ -13,7 +14,7 @@ const MovieItem = (movie) => {
       <MovieItemBox>
         <MovieItemInfo>
           <MovieItemImage>
-            <ItemImg src={imageUrl} alt={name} />
+            <ItemImg src={thumbnail_url} alt={name} />
           </MovieItemImage>
           <MovieItemDelete>
             <MovieItemName>{name}</MovieItemName>
@@ -21,7 +22,7 @@ const MovieItem = (movie) => {
           </MovieItemDelete>
           <ItemCapacityBox>
             <MovieItemCapacity>
-              [{time}] {name}
+              [{meeting_date} | {time}] {name}
             </MovieItemCapacity>
           </ItemCapacityBox>
         </MovieItemInfo>
@@ -29,11 +30,11 @@ const MovieItem = (movie) => {
         <QuantityWrap>
           <MovieItemQuantity>
             <ItemMinusCount onClick={() => itemMinusCount(id)}>-</ItemMinusCount>
-            <Count>{quantity}</Count>
+            <Count>{counts}</Count>
             <ItemPlusCount onClick={() => itemPlusCount(id)}>+</ItemPlusCount>
           </MovieItemQuantity>
           <EachMovieItemPrice>
-            <EachTotalPrice>{(price * quantity).toLocaleString()}원</EachTotalPrice>
+            <EachTotalPrice>{(price * counts).toLocaleString()}원</EachTotalPrice>
           </EachMovieItemPrice>
         </QuantityWrap>
       </MovieItemBox>

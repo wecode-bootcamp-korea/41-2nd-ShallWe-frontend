@@ -1,103 +1,95 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { API } from '../../config';
 import MovieItem from './MovieItem';
 import MovieReceipt from './MovieReceipt';
 
 const MovieCart = () => {
-  const [movieList, setMovieList] = useState([]);
-  const accessToken = localStorage.getItem('token') ?? '';
+  const [pickMovieList, setPickMovieList] = useState([]);
+  const [orderMovieList, setOrderMovieList] = useState([]);
 
-  const totalSumPrice = movieList.reduce(
-    (sum, current) => sum + current.price * current.quantity,
+  const accessToken = localStorage.getItem('token') ?? '';
+  const totalSumPrice = pickMovieList.reduce(
+    (sum, current) => sum + current.price * current.counts,
     0
   );
 
   const itemPlusCount = (id) => {
-    const next = movieList.map((movieItem) => {
+    const next = pickMovieList.map((movieItem) => {
       if (movieItem.id === id) {
-        return { ...movieItem, quantity: movieItem.quantity + 1 };
+        return { ...movieItem, counts: movieItem.counts + 1 };
       }
       return movieItem;
     });
-    setMovieList(next);
+    setPickMovieList(next);
   };
 
   const itemMinusCount = (id) => {
-    const next = movieList.map((movieItem) => {
+    const next = pickMovieList.map((movieItem) => {
       if (movieItem.id === id) {
-        if (movieItem.quantity === 1) {
-          return { ...movieItem, quantity: 1 };
+        if (movieItem.counts === 1) {
+          return { ...movieItem, counts: 1 };
         } else {
-          return { ...movieItem, quantity: movieItem.quantity - 1 };
+          return { ...movieItem, counts: movieItem.counts - 1 };
         }
       }
       return movieItem;
     });
-    setMovieList(next);
+    setPickMovieList(next);
   };
 
-  const getMovieData = () => {
-    fetch(`/data/movie.json`, {
+  const getPickMovieData = () => {
+    fetch(`${API.MOVIECART}`, {
       method: 'GET',
-      headers: { authorization: accessToken },
+      headers: {
+        authorization: accessToken,
+      },
     })
       .then((response) => response.json())
-      .then((res) => setMovieList(res));
+      .then((res) => setPickMovieList(res.data));
   };
   useEffect(() => {
-    getMovieData();
+    getPickMovieData();
   }, []);
 
   const deleteItem = (id) => {
-    fetch(`/movies/${id}`, {
+    setPickMovieList(pickMovieList.filter((item) => item.id === id));
+    fetch(`${API.MOVIECART}/${id}`, {
       method: 'DELETE',
       headers: {
-        // authorization: accessToken,
+        authorization: accessToken,
       },
-    }).then((res) => {
-      if (res.status === 204) {
-        alert('상품이 장바구니에서 삭제되었습니다');
-        setMovieList(movieList.filter((movieList) => id !== movieList.movieId));
-      } else {
-        alert('다시 시도해주세요');
-      }
-    });
+    }).then((res) => res.json);
   };
 
   return (
     <MoviePageWrap>
       <MovieWrap>
-        <MovieTopSide>
-          <MovieBar>
-            <CheckAll>
-              <CheckAllButton type="checkbox" defaultChecked />
-              <CheckText>
-                모두 선택 ({movieList.length}/{movieList.length})
-              </CheckText>
-            </CheckAll>
-            <CheckOne>
-              <CheckOneButton>선택삭제</CheckOneButton>
-            </CheckOne>
-          </MovieBar>
-          <div />
-        </MovieTopSide>
-
         <MovieLeftSide>
           <ListHeader>영화관</ListHeader>
           <MovieItemList>
-            {movieList.map((movie) => (
-              <MovieItem
-                itemPlusCount={itemPlusCount}
-                itemMinusCount={itemMinusCount}
-                key={movie.id}
-                {...movie}
-                deleteItem={deleteItem}
-              />
-            ))}
+            {pickMovieList?.length > 0 &&
+              pickMovieList?.map((movie) => (
+                <MovieItem
+                  itemPlusCount={itemPlusCount}
+                  itemMinusCount={itemMinusCount}
+                  key={movie.id}
+                  {...movie}
+                  deleteItem={deleteItem}
+                  orderMovieList={orderMovieList}
+                  pickMovieList={pickMovieList}
+                  setOrderMovieList={setOrderMovieList}
+                />
+              ))}
           </MovieItemList>
         </MovieLeftSide>
         <MovieRightSide>
-          <MovieReceipt key={movieList.id} price={movieList.price} totalSumPrice={totalSumPrice} />
+          <MovieReceipt
+            key={orderMovieList.id}
+            orderMovieList={orderMovieList}
+            totalSumPrice={totalSumPrice}
+            pickMovieList={pickMovieList}
+          />
         </MovieRightSide>
       </MovieWrap>
     </MoviePageWrap>
@@ -121,10 +113,6 @@ const MovieWrap = styled.div`
   margin: 30px;
 `;
 
-const MovieTopSide = styled.div`
-  grid-column: 1 / 3;
-`;
-
 const MovieLeftSide = styled.div`
   background-color: rgb(255, 255, 255);
   width: 590px;
@@ -144,38 +132,5 @@ const ListHeader = styled.div`
 const MovieItemList = styled.ul``;
 
 const MovieRightSide = styled.div``;
-
-const MovieBar = styled.div`
-  ${({ theme }) => theme.mixin.flex(null, 'space-between', 'center')};
-  width: 590px;
-  padding: 10px;
-`;
-
-const CheckAll = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const CheckAllButton = styled.input`
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-`;
-
-const CheckText = styled.span`
-  margin-left: 10px;
-  color: #6f6f6f;
-`;
-
-const CheckOne = styled.div``;
-
-const CheckOneButton = styled.button`
-  appearance: none;
-  border: 0px;
-  background-color: transparent;
-  color: rgb(0, 151, 243);
-  font-size: 14px;
-  cursor: pointer;
-`;
 
 export default MovieCart;
