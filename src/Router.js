@@ -28,10 +28,10 @@ export default function Router() {
         <Route path="/auth/kakao/callback" element={<KakaoLogin />} />
         <Route path="/subscription" element={<Subscription />} />
         <Route path="/moviecart" element={<MovieCart />} />
-        <Route path="/subscribe" element={<Subscription />} />
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/mypage" element={<MyPage />}>
+          <Route path="/subscribe" element={<Subscribe />} />
           <Route path="reviews" element={<Review />} />
           <Route path="userinfo" element={<UserInfo />} />
           <Route path="refunds" element={<Refunds />} />
