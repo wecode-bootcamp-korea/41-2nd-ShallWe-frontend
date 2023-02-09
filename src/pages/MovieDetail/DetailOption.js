@@ -74,7 +74,7 @@ const MovieCart = styled.div`
   width: 400px;
   height: fit-content;
   max-height: 100vh;
-  margin-top: 35px;
+  /* margin-top: 25px; */
   padding: 20px 10px;
   box-shadow: rgb(0 0 0 / 16%) 0px 0px 3px 0px;
   border-radius: 10px;
