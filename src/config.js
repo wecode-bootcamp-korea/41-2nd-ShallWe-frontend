@@ -5,4 +5,6 @@ export const API = {
   MYINFO: `${BASE_URL}/myShallWe/userInfo`,
   MYREVIEW: `${BASE_URL}/myShallWe/reviews`,
   CATEGORY: `${BASE_URL}/movies/category`,
+  MOVIECART: `${BASE_URL}/myShallWe/pick`,
+  KAKAOPAY: `${BASE_URL}/myShallWe/orders/pick`,
 };

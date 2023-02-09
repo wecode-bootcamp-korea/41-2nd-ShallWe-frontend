@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import KakaoPay from '../../components/KakaoPay/KakaoPay';
 
 const MovieReceipt = (props) => {
-  const { totalSumPrice } = props;
+  const { totalSumPrice, pickMovieList } = props;
+
   return (
     <MovieReceiptWrap>
       <MovieReceiptBox>
@@ -11,7 +13,7 @@ const MovieReceipt = (props) => {
           <ReceiptTitles>총 상품금액</ReceiptTitles>
           <ReceiptPrice>{totalSumPrice.toLocaleString()}원</ReceiptPrice>
         </ReceiptPriceWrap>
-        <ReceiptButton>구매하기</ReceiptButton>
+        <KakaoPay pickMovieList={pickMovieList} totalSumPrice={totalSumPrice} />
       </MovieReceiptBox>
     </MovieReceiptWrap>
   );
@@ -50,18 +52,6 @@ const ReceiptPriceWrap = styled.div`
 const ReceiptTitles = styled.div``;
 const ReceiptPrice = styled.div`
   color: #0097f3;
-`;
-const ReceiptButton = styled.button`
-  ${({ theme }) => theme.mixin.flex(null, 'center', 'center')};
-  width: 100%;
-  height: 55px;
-  background-color: #0697f3;
-  border-radius: 7px;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
 `;
 
 export default MovieReceipt;
