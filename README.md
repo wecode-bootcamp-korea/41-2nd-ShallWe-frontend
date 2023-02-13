@@ -53,16 +53,16 @@
 
 | 사이트                 | 구현 모습                                                                                                                           | 담당 개발자                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| 인트로 페이지              | <img src = "https://user-images.githubusercontent.com/117936577/218308539-5fefe6a0-eeaf-4cbe-a3d4-6253edc141dd.gif" width = "400px"> | -프론트엔드: 박채연 <br> -백엔드:        |
-| 메인 페이지                 | <img src ="https://user-images.githubusercontent.com/117936577/218308786-3a9da0cb-b272-4330-b509-66aafd45079b.gif" width = "400px"> | -프론트엔드: 박채연, 장찬영 <br> -백엔드:        |
-| 로그인 페이지                 | <img src ="https://user-images.githubusercontent.com/117936577/218308956-8985f045-cdb6-4b9d-95ce-feed8bcc31ae.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:        |
-| 카테고리 페이지                   | <img src = "https://user-images.githubusercontent.com/117936577/218308843-12a14dee-77f1-4e27-9e97-f14852dc990e.gif" width = "400px"> | -프론트엔드: 장찬영 <br> -백엔드:        |
-| 마이 페이지                     | <img src = "https://user-images.githubusercontent.com/117936577/218312377-5e43ca3b-b44c-4372-9915-3813e58c8211.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:        |
-| 상세 페이지          | <img src = "https://user-images.githubusercontent.com/117936577/218311556-b76b83e5-f6f2-4a87-90d0-92664fb23dc9.gif" width = "400px"> | -프론트엔드: 박채연 <br> -백엔드:         |
-| 구독 페이지         | <img src = "https://user-images.githubusercontent.com/117936577/218308900-69a498fd-8525-4bea-ae95-3c758b442c09.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:         |
-| 장바구니, 결제 페이지             | <img src = "https://user-images.githubusercontent.com/117936577/218310593-0dc8a69b-a664-4487-8544-e3f41ddf5b2b.gif" width = "400px"> | -프론트엔드: 박예솔 <br> -백엔드:         |
-| 네비게이션 바              | <img src = "https://user-images.githubusercontent.com/117936577/218312109-8274c1ae-f77e-4f08-92fe-00f265aa2a8b.gif" width = "400px"> | -프론트엔드: 박예솔 <br> -백엔드:            |
-| Footer            | <img src = "https://user-images.githubusercontent.com/117936577/218311970-3ef7b559-f892-475c-afcb-ec0301628783.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:                      |
+|      <div align="center">인트로 페이지</div>          | <img src = "https://user-images.githubusercontent.com/117936577/218308539-5fefe6a0-eeaf-4cbe-a3d4-6253edc141dd.gif" width = "400px"> | -프론트엔드: 박채연 <br> -백엔드:        |
+| <div align="center">메인 페이지 </div>                | <img src ="https://user-images.githubusercontent.com/117936577/218308786-3a9da0cb-b272-4330-b509-66aafd45079b.gif" width = "400px"> | -프론트엔드: 박채연, 장찬영 <br> -백엔드:        |
+| <div align="center">로그인 페이지  </div>               | <img src ="https://user-images.githubusercontent.com/117936577/218308956-8985f045-cdb6-4b9d-95ce-feed8bcc31ae.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:        |
+| <div align="center">카테고리 페이지  </div>                 | <img src = "https://user-images.githubusercontent.com/117936577/218308843-12a14dee-77f1-4e27-9e97-f14852dc990e.gif" width = "400px"> | -프론트엔드: 장찬영 <br> -백엔드:        |
+| <div align="center">마이 페이지  </div>                   | <img src = "https://user-images.githubusercontent.com/117936577/218312377-5e43ca3b-b44c-4372-9915-3813e58c8211.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:        |
+| <div align="center">상세 페이지   </div>       | <img src = "https://user-images.githubusercontent.com/117936577/218311556-b76b83e5-f6f2-4a87-90d0-92664fb23dc9.gif" width = "400px"> | -프론트엔드: 박채연 <br> -백엔드:         |
+| <div align="center">구독 페이지  </div>       | <img src = "https://user-images.githubusercontent.com/117936577/218308900-69a498fd-8525-4bea-ae95-3c758b442c09.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:         |
+| <div align="center">장바구니, 결제 페이지  </div>           | <img src = "https://user-images.githubusercontent.com/117936577/218310593-0dc8a69b-a664-4487-8544-e3f41ddf5b2b.gif" width = "400px"> | -프론트엔드: 박예솔 <br> -백엔드:         |
+| <div align="center">네비게이션 바   </div>           | <img src = "https://user-images.githubusercontent.com/117936577/218312109-8274c1ae-f77e-4f08-92fe-00f265aa2a8b.gif" width = "400px"> | -프론트엔드: 박예솔 <br> -백엔드:            |
+| <div align="center">Footer </div>           | <img src = "https://user-images.githubusercontent.com/117936577/218311970-3ef7b559-f892-475c-afcb-ec0301628783.gif" width = "400px"> | -프론트엔드: 김성재 <br> -백엔드:                      |
 
 
 # 📌 구현 사항 설명
